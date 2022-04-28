@@ -1,9 +1,66 @@
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { FaSignInAlt } from 'react-icons/fa';
+
 function Login() {
-    return (
-      <div>
-        <h1>Login</h1>
-      </div>
-    );
-  }
-  export default Login;
-  
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const { email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <>
+      <section className="heading">
+        <h1>
+          <FaSignInAlt /> Login
+        </h1>
+        <p>Welcome Back</p>
+      </section>
+      <section className="form">
+        <form onSubmit={onSubmit}>
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              vale={email}
+              onChange={onChange}
+              placeHolder="Enter your email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              vale={password}
+              onChange={onChange}
+              placeHolder="Enter your password"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <button className="btn btn-block">Submit</button>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+}
+export default Login;
