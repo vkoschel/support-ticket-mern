@@ -19,7 +19,7 @@ const createTicket = asyncHandler(async (req, res) => {
   const { product, description } = req.body;
 
   if (!product || !description) {
-    restart.status(400);
+    res.status(400);
     throw new Error('Please provide a product and a description');
   }
 
