@@ -14,7 +14,7 @@ function NewTicket() {
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [product, setProduct] = useState('');
+  const [product, setProduct] = useState('iPhone');
   const [description, setDescription] = useState('');
 
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ function NewTicket() {
               name="product"
               id="product"
               value={product}
+              defaultValue={'iPhone'}
               onChange={(e) => {
                 setProduct(e.target.value);
               }}

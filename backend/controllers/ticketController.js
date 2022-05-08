@@ -27,7 +27,7 @@ const createTicket = asyncHandler(async (req, res) => {
     product,
     description,
     user: req.user.id,
-    status: 'pending',
+    status: 'new',
   });
   res.status(201).json(ticket);
 });
