@@ -10,6 +10,9 @@ const {
   updateTicket,
 } = require('../controllers/ticketController');
 
+const noteRouter = require('./noteRoutes');
+router.use('/:id/notes', noteRouter);
+
 const { protect } = require('../middleware/authMiddleware');
 
 router.route('/').get(protect, getTickets).post(protect, createTicket);
